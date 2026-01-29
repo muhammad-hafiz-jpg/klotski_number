@@ -125,19 +125,6 @@ Jarak Manhattan
 - `api.php?action=saveResult` - Simpan hasil permainan
 - `api.php?action=calculateMinMoves` - Menghitung jumlah langkah minimum
 
-## Peningkatan di Masa Depan
-
-- [ ] Fungsi Undo/Redo
-- [ ] Riwayat pemindahan
-- [ ] Mode multipemain
-- [ ] Gambar teka-teki khusus
-- [ ] Efek suara dan musik
-- [ ] Prestasi dan lencana
-- [ ] Papan peringkat global (berbasis server)
-- [ ] Demonstrasi pemecah masalah AI
-- [ ] Kustomisasi tema
-- [ ] Berbagai bahasa
-
 ## Lisensi
 
 Sumber terbuka - Silakan gunakan dan modifikasi!
