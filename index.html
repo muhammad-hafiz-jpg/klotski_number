@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teka-teki Angka Klotski</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Teka-teki Angka Klotski</h1>
+            <p class="subtitle">Susunlah angka-angka secara berurutan</p>
+        </header>
+
+        <!-- Settings Panel -->
+        <section class="settings-panel">
+            <div class="settings-group">
+                <label for="gridSize">Grid Size:</label>
+                <select id="gridSize" onchange="handleGridSizeChange()">
+                    <option value="2">2x2</option>
+                    <option value="3" selected>3x3</option>
+                    <option value="4">4x4</option>
+                    <option value="5">5x5</option>
+                    <option value="6">6x6</option>
+                    <option value="7">7x7</option>
+                    <option value="8">8x8</option>
+                    <option value="9">9x9</option>
+                    <option value="10">10x10</option>
+                </select>
+            </div>
+
+            <div class="settings-group">
+                <label for="gameMode">Game Mode:</label>
+                <select id="gameMode" onchange="handleGameModeChange()">
+                    <option value="classic" selected>Classic</option>
+                    <option value="timed">Timed (60s)</option>
+                    <option value="moves">Move Limited (50)</option>
+                    <option value="zen">Zen Mode</option>
+                </select>
+            </div>
+
+            <div class="settings-group">
+                <label for="difficulty">Difficulty:</label>
+                <select id="difficulty" onchange="handleDifficultyChange()">
+                    <option value="easy">Easy (50 shuffles)</option>
+                    <option value="medium" selected>Medium (100 shuffles)</option>
+                    <option value="hard">Hard (200 shuffles)</option>
+                    <option value="expert">Expert (500 shuffles)</option>
+                </select>
+            </div>
+
+            <div class="settings-group">
+                <label for="bgColor">Background Color:</label>
+                <input type="color" id="bgColor" value="#667eea" onchange="handleBackgroundColorChange()">
+            </div>
+
+            <div class="settings-group">
+                <label for="tileColor">Tile Color:</label>
+                <input type="color" id="tileColor" value="#667eea" onchange="handleTileColorChange()">
+            </div>
+
+            <div class="settings-group">
+                <label for="fontFamily">Font:</label>
+                <select id="fontFamily" onchange="handleFontFamilyChange()">
+                    <option value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Segoe UI (Default)</option>
+                    <option value="'Arial', sans-serif">Arial</option>
+                    <option value="'Times New Roman', serif">Times New Roman</option>
+                    <option value="'Courier New', monospace">Courier New</option>
+                    <option value="'Georgia', serif">Georgia</option>
+                    <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
+                    <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
+                </select>
+            </div>
+
+            <div class="settings-group">
+                <label for="fontSize">Font Size:</label>
+                <input type="range" id="fontSize" min="12" max="20" value="16" onchange="handleFontSizeChange()">
+                <span id="fontSizeValue" class="font-size-value">16px</span>
+            </div>
+
+            <div class="button-group">
+                <button onclick="startNewGame()" class="btn btn-primary">New Game</button>
+                <button onclick="resetGame()" class="btn btn-secondary">Reset</button>
+                <button onclick="toggleSettings()" class="btn btn-secondary">Close</button>
+            </div>
+        </section>
+
+        <!-- Game Stats -->
+        <section class="stats-panel">
+            <div class="stat-item">
+                <span class="stat-label">Moves:</span>
+                <span class="stat-value" id="moveCount">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Time:</span>
+                <span class="stat-value" id="timeCount">0:00</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Mode:</span>
+                <span class="stat-value" id="modeDisplay">Classic</span>
+            </div>
+            <button onclick="toggleSettings()" class="btn btn-settings">⚙ Settings</button>
+        </section>
+
+        <!-- Game Board -->
+        <section class="game-container">
+            <div class="board" id="gameBoard"></div>
+        </section>
+
+        <!-- Messages -->
+        <section class="message-panel">
+            <div id="messageBox" class="message-box"></div>
+        </section>
+
+        <!-- Leaderboard (for Zen Mode) -->
+        <section class="leaderboard-panel" id="leaderboardPanel" style="display:none;">
+            <h3>Best Times</h3>
+            <div id="leaderboardList" class="leaderboard-list"></div>
+        </section>
+    </div>
+
+    <script src="js/game.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/utils.js"></script>
+</body>
+</html>
